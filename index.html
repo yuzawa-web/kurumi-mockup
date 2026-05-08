@@ -18,6 +18,7 @@
     --ine-deep: #E8E0CC;      /* 稲の少し濃いトーン */
     --sage: #9DB899;          /* SUB 02 若葉（主役アクセント） */
     --sage-dark: #7A957A;     /* 若葉の濃いトーン */
+    --sage-deeper: #4F6B4D;   /* 若葉の深いトーン（コントラスト強） */
     --sage-light: #D8E2D5;    /* 若葉の淡いトーン */
     --text: #222222;
     --text-sub: #555555;
@@ -59,7 +60,10 @@
     gap: 20px;
   }
   .logo {
-    display: flex; align-items: center; gap: 16px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .logo-mark-img {
+    height: 42px; width: auto; display: block;
   }
   .logo-img {
     height: 44px; width: auto; display: block;
@@ -347,6 +351,19 @@
     font-size: 12px; font-weight: 700;
     margin-top: 4px;
   }
+  .office-map {
+    width: calc(100% + 44px); height: 180px; border: 0;
+    display: block; background: var(--sage-light);
+    margin: 8px -22px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .office-map-link {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 12px; color: var(--sage-dark);
+    margin-top: 4px;
+  }
+  .office-map-link:hover { color: var(--crimson); }
   .office-card .tel-btn {
     margin-top: auto;
     display: flex; align-items: center; justify-content: center; gap: 8px;
@@ -398,14 +415,26 @@
      お問い合わせ
      ============================ */
   .contact {
-    background: linear-gradient(135deg, var(--indigo) 0%, var(--indigo-dark) 100%);
+    background: linear-gradient(135deg, var(--sage-dark) 0%, var(--sage-deeper) 100%);
     color: #fff;
+    position: relative;
+    overflow: hidden;
   }
+  .contact::before {
+    content: ""; position: absolute;
+    right: -100px; top: -100px;
+    width: 320px; height: 320px; border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+  }
+  .contact::after {
+    content: ""; position: absolute;
+    left: -80px; bottom: -120px;
+    width: 260px; height: 260px; border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+  }
+  .contact .section-inner { position: relative; z-index: 1; }
   .contact .section-head h2 { color: #fff; }
-  .contact .section-head .label { color: var(--sage-light); }
-  .contact .section-head .label::before,
-  .contact .section-head .label::after { background: var(--sage-light); }
-  .contact .section-head p { color: rgba(255,255,255,0.85); }
+  .contact .section-head p { color: rgba(255,255,255,0.9); }
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
   .contact-card {
     background: rgba(255,255,255,0.06);
@@ -420,7 +449,7 @@
   .contact-card .desc { font-size: 14px; opacity: 0.85; margin: 0 0 24px; }
   .contact-card .big-tel {
     font-family: "Zen Maru Gothic", serif;
-    font-size: 32px; font-weight: 900; color: var(--sage-light);
+    font-size: 32px; font-weight: 900; color: var(--ine);
     margin-bottom: 8px;
   }
   .contact-card .hours { font-size: 13px; opacity: 0.8; margin-bottom: 20px; }
@@ -485,7 +514,7 @@
 <header class="site-header">
   <div class="header-inner">
     <div class="logo">
-      <img src="hakushinkai_logo_horizontal.png" alt="医療法人 博滇会 hakushinkai" class="logo-img">
+      <img src="hakushinkai_logo_mark.png" alt="医療法人 博滇会" class="logo-mark-img">
       <div class="logo-divider"></div>
       <div class="logo-text">
         <div class="ja">居宅介護支援事業所くるみ</div>
@@ -690,6 +719,8 @@
             <span class="lbl">受付</span>
             <span>平日（要確認）</span>
           </div>
+          <iframe class="office-map" src="https://maps.google.com/maps?q=%E3%81%95%E3%81%84%E3%81%9F%E3%81%BE%E5%B8%82%E8%A5%BF%E5%8C%BA%E8%A5%BF%E9%81%8A%E9%A6%AC1259-2&hl=ja&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="居宅介護支援事業所くるみの地図"></iframe>
+          <a href="https://maps.google.com/?q=%E3%81%95%E3%81%84%E3%81%9F%E3%81%BE%E5%B8%82%E8%A5%BF%E5%8C%BA%E8%A5%BF%E9%81%8A%E9%A6%AC1259-2" target="_blank" rel="noopener" class="office-map-link">🗺 大きな地図で見る</a>
           <a href="tel:0487832001" class="tel-btn">📞 048-783-2001</a>
         </div>
       </div>
@@ -713,6 +744,8 @@
             <span class="lbl">特徴</span>
             <span>上尾市内のご相談を中心にお受けします。</span>
           </div>
+          <iframe class="office-map" src="https://maps.google.com/maps?q=%E4%B8%8A%E5%B0%BE%E5%B8%82%E7%B7%91%E4%B8%983-6-19&hl=ja&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="上尾くるみの地図"></iframe>
+          <a href="https://maps.google.com/?q=%E4%B8%8A%E5%B0%BE%E5%B8%82%E7%B7%91%E4%B8%983-6-19" target="_blank" rel="noopener" class="office-map-link">🗺 大きな地図で見る</a>
           <a href="tel:0487797131" class="tel-btn">📞 048-779-7131</a>
         </div>
       </div>
@@ -739,6 +772,8 @@
               <span style="font-size:12px;color:var(--text-sub);">緊急時はケアマネジャーへいつでもご連絡いただけます。</span>
             </span>
           </div>
+          <iframe class="office-map" src="https://maps.google.com/maps?q=%E3%81%95%E3%81%84%E3%81%9F%E3%81%BE%E5%B8%82%E8%A5%BF%E5%8C%BA%E8%A5%BF%E9%81%8A%E9%A6%AC367-5&hl=ja&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="プライエボーリくるみの地図"></iframe>
+          <a href="https://maps.google.com/?q=%E3%81%95%E3%81%84%E3%81%9F%E3%81%BE%E5%B8%82%E8%A5%BF%E5%8C%BA%E8%A5%BF%E9%81%8A%E9%A6%AC367-5" target="_blank" rel="noopener" class="office-map-link">🗺 大きな地図で見る</a>
           <a href="tel:0486202133" class="tel-btn">📞 048-620-2133</a>
         </div>
       </div>
@@ -825,7 +860,7 @@
     <div class="footer-top">
       <div class="footer-brand">
         <div class="logo">
-          <img src="hakushinkai_logo_horizontal.png" alt="医療法人 博滇会 hakushinkai" class="logo-img">
+          <img src="hakushinkai_logo_horizontal.png" alt="医療法人 博滇会" class="logo-img">
           <div class="logo-divider"></div>
           <div class="logo-text">
             <div class="ja">居宅介護支援事業所くるみ</div>
@@ -862,4 +897,3 @@
 
 </body>
 </html>
-                                                                                                                       
