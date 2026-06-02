@@ -87,10 +87,10 @@
   }
   .btn-recruit-header:hover { background: var(--indigo); color: #fff; }
 
-  /* ファーストビュー（全画面写真＋手書きキャッチコピー） */
+  /* ファーストビュー（全画面写真、キャッチコピーのみ） */
   .hero {
     position: relative;
-    min-height: 78vh;
+    min-height: 70vh;
     color: #fff;
     overflow: hidden;
     background-color: #4F6B4D;
@@ -106,7 +106,7 @@
   .hero-bg:nth-child(2) { background-image: url('hero_clinic2.jpg'); animation-delay: 9s; }
   .hero-overlay {
     position: absolute; inset: 0;
-    background: linear-gradient(180deg, rgba(30,64,104,0.30) 0%, rgba(79,107,77,0.30) 50%, rgba(30,64,104,0.55) 100%);
+    background: linear-gradient(180deg, rgba(30,64,104,0.25) 0%, rgba(79,107,77,0.25) 50%, rgba(30,64,104,0.50) 100%);
     z-index: 1;
   }
   @keyframes heroFade {
@@ -117,15 +117,15 @@
   .hero-content {
     position: relative; z-index: 2;
     max-width: 1080px; margin: 0 auto;
-    padding: 18vh 24px 14vh;
+    padding: 26vh 24px 22vh;
     text-align: center;
   }
   .hero-catch {
     font-family: "Zen Maru Gothic", "Yu Gothic", sans-serif;
-    font-size: clamp(36px, 6vw, 64px);
+    font-size: clamp(38px, 6.5vw, 70px);
     font-weight: 700;
     color: #fff;
-    margin: 0 0 36px;
+    margin: 0;
     line-height: 1.5;
     text-shadow: 0 6px 28px rgba(0,0,0,0.55), 0 3px 8px rgba(0,0,0,0.45);
     letter-spacing: 0.04em;
@@ -134,38 +134,87 @@
     color: #FFE8C7;
     display: inline-block;
   }
-  .hero-sub {
-    font-family: "Klee One", serif;
-    font-size: clamp(15px, 1.8vw, 18px);
-    color: #fff;
-    max-width: 640px;
-    margin: 0 auto 36px;
-    line-height: 2;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+
+  /* ヒーロー直下の紹介・CTA */
+  .intro-message {
+    background: var(--bg);
+    padding: 70px 24px 50px;
+    text-align: center;
   }
-  .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+  .intro-message .container {
+    max-width: 880px; margin: 0 auto;
+  }
+  .intro-message .intro-cta {
+    display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+    margin-bottom: 36px;
+  }
+  .intro-message p {
+    font-size: 17px; line-height: 2.1;
+    color: var(--text);
+    margin: 0;
+  }
+  .intro-message p .highlight {
+    color: var(--indigo); font-weight: 700;
+    border-bottom: 2px solid var(--sage-light);
+    padding: 0 2px;
+  }
+
+  /* 情報バー（湯澤医院 schedule-bar 相当） */
+  .info-bar-wrap { max-width: 1080px; margin: 0 auto 80px; padding: 0 24px; }
+  .info-bar {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 28px 32px;
+    box-shadow: 0 4px 18px rgba(30,64,104,0.08);
+    border: 1px solid var(--ine-deep);
+  }
+  .info-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+    align-items: center;
+  }
+  .info-grid > div {
+    text-align: center;
+    padding: 0 12px;
+    border-right: 1px solid var(--ine-deep);
+  }
+  .info-grid > div:last-child { border-right: 0; }
+  .info-grid .label {
+    font-size: 12px; color: var(--sage-dark); font-weight: 700;
+    letter-spacing: 0.1em; margin-bottom: 8px;
+  }
+  .info-grid .value {
+    font-family: "Zen Maru Gothic", serif;
+    font-size: 17px; color: var(--indigo); font-weight: 700;
+    line-height: 1.5;
+  }
+  .info-grid .value small {
+    font-family: "Klee One", serif;
+    font-size: 12px; color: var(--text-sub); display: block;
+    font-weight: 400; margin-top: 4px;
+  }
+
+  /* ボタン共通（intro-cta用） */
   .btn-primary {
     background: var(--crimson); color: #fff;
     padding: 18px 34px; border-radius: 50px;
     font-weight: 700; font-size: 16px;
     font-family: inherit;
     display: inline-flex; align-items: center; gap: 10px;
-    box-shadow: 0 6px 18px rgba(169,58,46,0.35);
+    box-shadow: 0 6px 18px rgba(169,58,46,0.30);
     transition: 0.2s;
     border: 0; cursor: pointer;
   }
   .btn-primary:hover { background: var(--crimson-dark); color: #fff; transform: translateY(-2px); }
   .btn-secondary {
-    background: rgba(255,255,255,0.18);
-    color: #fff;
-    border: 1.5px solid #fff;
+    background: var(--white);
+    color: var(--indigo);
+    border: 1.5px solid var(--indigo);
     padding: 18px 34px; border-radius: 50px;
     font-weight: 700; font-size: 16px;
     display: inline-flex; align-items: center; gap: 10px;
     transition: 0.2s;
-    backdrop-filter: blur(3px);
   }
-  .btn-secondary:hover { background: #fff; color: var(--indigo); }
+  .btn-secondary:hover { background: var(--indigo); color: #fff; }
 
   /* セクション共通 */
   section { padding: 80px 24px; }
@@ -546,7 +595,7 @@
   </div>
 </header>
 
-<!-- ファーストビュー（全画面写真） -->
+<!-- ファーストビュー（写真＋キャッチコピーのみ） -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-bg"></div>
@@ -556,16 +605,42 @@
       介護のはじめの一歩、<br>
       <span class="accent">ご一緒に。</span>
     </h1>
-    <p class="hero-sub">
-      さいたま市・上尾市で、ケアマネジャーがご本人とご家族の暮らしに寄りそいます。<br>
-      どこに相談したらよいか分からない、そんなときも、まずはお気軽にお声がけください。
-    </p>
-    <div class="hero-cta">
+  </div>
+</section>
+
+<!-- ヒーロー直下：CTA＋紹介文 -->
+<section class="intro-message">
+  <div class="container">
+    <div class="intro-cta">
       <a href="#" class="btn-primary" onclick="openTelModal(); return false;">📞 お電話で相談する</a>
       <a href="#services" class="btn-secondary">サービス内容を見る →</a>
     </div>
+    <p>
+      さいたま市・上尾市で、<span class="highlight">ケアマネジャーがご本人とご家族の暮らしに寄りそいます</span>。<br>
+      どこに相談したらよいか分からない、そんなときも、まずはお気軽にお声がけください。
+    </p>
   </div>
 </section>
+
+<!-- 情報バー -->
+<div class="info-bar-wrap">
+  <div class="info-bar">
+    <div class="info-grid">
+      <div>
+        <div class="label">ご相談・ケアプラン</div>
+        <div class="value">無料でご利用OK<small>介護保険から全額給付</small></div>
+      </div>
+      <div>
+        <div class="label">3事業所が連携</div>
+        <div class="value">さいたま市西区 / 上尾市<small>お近くの事業所におつなぎ</small></div>
+      </div>
+      <div>
+        <div class="label">緊急時</div>
+        <div class="value">24時間連絡可能<small>プライエボーリくるみ</small></div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- 居宅介護支援とは -->
 <section class="intro" id="about">
