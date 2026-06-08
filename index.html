@@ -175,6 +175,14 @@
     .logo-flutter img { width: 32px !important; }
   }
 
+  /* 明るい背景用：ロゴ浮遊を薄く */
+  .logo-flutter-light img {
+    opacity: 0.10 !important;
+    filter: none !important;
+  }
+  /* 浮遊背景用ラッパー */
+  .flutter-wrap { position: relative; overflow: hidden; }
+
   /* ヒーロー直下の紹介・CTA */
   .intro-message {
     background: var(--bg);
@@ -689,21 +697,24 @@
   <div class="hero-bg"></div>
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
-  <div class="logo-flutter" aria-hidden="true">
-    <img src="hakushinkai_symbol.png" alt="">
-    <img src="hakushinkai_symbol.png" alt="">
-    <img src="hakushinkai_symbol.png" alt="">
-    <img src="hakushinkai_symbol.png" alt="">
-    <img src="hakushinkai_symbol.png" alt="">
-    <img src="hakushinkai_symbol.png" alt="">
-    <img src="hakushinkai_symbol.png" alt="">
-  </div>
   <div class="hero-content">
     <h1 class="hero-catch">
       ～この街の一生に応える～
     </h1>
   </div>
 </section>
+
+<!-- ヒーロー下〜「居宅介護支援とは」をロゴ浮遊で包む -->
+<div class="flutter-wrap">
+  <div class="logo-flutter logo-flutter-light" aria-hidden="true">
+    <img src="hakushinkai_symbol.png" alt="">
+    <img src="hakushinkai_symbol.png" alt="">
+    <img src="hakushinkai_symbol.png" alt="">
+    <img src="hakushinkai_symbol.png" alt="">
+    <img src="hakushinkai_symbol.png" alt="">
+    <img src="hakushinkai_symbol.png" alt="">
+    <img src="hakushinkai_symbol.png" alt="">
+  </div>
 
 <!-- ヒーロー直下：CTA＋紹介文 -->
 <section class="intro-message">
@@ -764,6 +775,7 @@
     </div>
   </div>
 </section>
+</div><!-- /flutter-wrap -->
 
 <!-- サービス内容 -->
 <section class="services" id="services">
@@ -835,8 +847,17 @@
 </section>
 
 <!-- 対応エリア -->
-<section class="area">
-  <div class="section-inner">
+<section class="area" style="position:relative; overflow:hidden;">
+  <div class="logo-flutter logo-flutter-light" aria-hidden="true">
+    <img src="hakushinkai_symbol.png" alt="">
+    <img src="hakushinkai_symbol.png" alt="">
+    <img src="hakushinkai_symbol.png" alt="">
+    <img src="hakushinkai_symbol.png" alt="">
+    <img src="hakushinkai_symbol.png" alt="">
+    <img src="hakushinkai_symbol.png" alt="">
+    <img src="hakushinkai_symbol.png" alt="">
+  </div>
+  <div class="section-inner" style="position:relative; z-index:2;">
     <div class="section-head">
       <h2>対応エリア</h2>
       <p>3事業所が連携して、さいたま市西区・上尾市を中心に対応しています。</p>
