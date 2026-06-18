@@ -287,7 +287,10 @@
   .intro-card .leader {
     font-family: "Zen Maru Gothic", serif;
     font-size: 24px; color: var(--indigo);
-    margin: 0 0 24px; line-height: 1.6; font-weight: 700;
+    margin: 0 auto 24px; line-height: 1.7; font-weight: 700;
+    max-width: 760px;
+    text-align: center;
+    text-wrap: balance;
   }
   .intro-card .leader em { font-style: normal; color: var(--sage-dark); }
   .intro-card p { max-width: 720px; margin: 0 auto; color: var(--text); }
@@ -617,17 +620,6 @@
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(169,58,46,0.12);
   }
-  .tel-modal-item.featured {
-    border-color: var(--crimson); background: #FFF6F4;
-    position: relative;
-  }
-  .tel-modal-item.featured::after {
-    content: "24時間"; position: absolute;
-    right: 14px; top: 14px;
-    background: var(--crimson); color: #fff;
-    padding: 2px 8px; border-radius: 4px;
-    font-size: 11px; font-weight: 700;
-  }
   .tel-modal-item .area-tag {
     display: inline-block; font-size: 11px;
     color: var(--sage-dark); font-weight: 700;
@@ -759,8 +751,7 @@
     </div>
     <div class="intro-card">
       <p class="leader">
-        ケアマネジャーが、ご本人・ご家族のご希望をうかがって、<br>
-        <em>介護保険のサービス利用を一緒に考える</em>ところです。
+        ケアマネジャーが、ご本人・ご家族のご希望をうかがって、<em>介護保険のサービス利用を一緒に考える</em>ところです。
       </p>
       <p>
         要介護認定を受けたばかりの方、ご自宅での介護を続けたい方、ご家族の負担を減らしたい方など、
@@ -1003,7 +994,7 @@
           <li>ご希望の事業所</li>
           <li>ご相談内容</li>
         </ul>
-        <a href="#" class="btn-form">フォームを開く →</a>
+        <a href="https://hakushinkai.jp/contact/" class="btn-form" target="_blank" rel="noopener">フォームを開く →</a>
       </div>
     </div>
   </div>
@@ -1081,7 +1072,7 @@
         <span class="name">上尾くるみ 居宅介護支援事業所</span>
         <span class="tel">📞 048-779-7131</span>
       </a>
-      <a href="tel:0486202133" class="tel-modal-item featured">
+      <a href="tel:0486202133" class="tel-modal-item">
         <span class="area-tag">さいたま市西区</span>
         <span class="name">プライエボーリくるみ</span>
         <span class="tel">📞 048-620-2133</span>
