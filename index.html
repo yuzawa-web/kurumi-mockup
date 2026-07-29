@@ -373,7 +373,7 @@
   }
 
   /* 対応エリア */
-  .area { background: var(--white); }
+  .area { background: var(--ine); }
   .area-grid { display: flex; flex-direction: column; gap: 30px; align-items: center; }
   .area-map {
     background: var(--white);
@@ -737,6 +737,65 @@
     font-size: 14px; flex-shrink: 0;
   }
 
+
+  /* 地図カード（対応可能な市区町村） */
+  .area-map-card {
+    max-width: 900px; margin: 0 auto 30px;
+    background: var(--white);
+    border-radius: 14px; overflow: hidden;
+    box-shadow: 0 2px 10px rgba(30,64,104,0.07);
+  }
+  .area-map-card .head { background: var(--sage); color: #fff; padding: 18px 22px; }
+  .area-map-card .head .area-label { font-size: 11px; letter-spacing: 0.15em; opacity: 0.9; display: block; margin-bottom: 4px; }
+  .area-map-card .head h3 { font-size: 17px; margin: 0; line-height: 1.4; color: #fff; font-family: "Zen Maru Gothic", serif; }
+  .area-map-card .body { padding: 22px; }
+  .area-map-card .area-note {
+    margin-top: 16px;
+    padding: 14px 18px;
+    background: var(--ine);
+    border-radius: 8px;
+  }
+  .area-map-card .area-note p {
+    font-size: 13px; color: var(--text-sub);
+    margin: 0; line-height: 1.9;
+  }
+
+
+  /* お問い合わせ内のFAQカード（幅広1枚） */
+  .contact-faq-card {
+    max-width: none;
+    margin-bottom: 0;
+    text-align: left;
+  }
+  .contact-faq-card h3 {
+    color: var(--indigo);
+    font-size: 20px;
+    margin: 0 0 4px;
+    text-align: left !important;
+  }
+
+  /* お問い合わせ 3列レイアウト */
+  .contact-grid-3col { grid-template-columns: 1fr 1fr 1fr; gap: 22px; align-items: stretch; }
+  .contact-grid-3col .contact-card {
+    padding: 26px 22px;
+    display: flex; flex-direction: column;
+  }
+  .contact-grid-3col .contact-card h3 { font-size: 18px; }
+  .contact-grid-3col .contact-faq-card .faq-acc-item summary { padding: 12px 14px; font-size: 13px; gap: 8px; }
+  .contact-grid-3col .contact-faq-card .faq-acc-item summary .mark,
+  .contact-grid-3col .contact-faq-card .faq-acc-a .mark { width: 22px; height: 22px; font-size: 12px; }
+  .contact-grid-3col .contact-faq-card .faq-acc-a { font-size: 13px; padding: 4px 14px 14px 14px; }
+
+  /* カードのラベル（Q&A / TEL / FORM） */
+  .card-label {
+    font-size: 11px; display: block; color: var(--sage-dark);
+    font-weight: 700; letter-spacing: 0.15em; margin-bottom: 4px;
+    text-align: left;
+  }
+
+  @media (max-width: 900px) {
+    .contact-grid-3col { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -927,16 +986,19 @@
       <h2>対応エリアと事業所</h2>
       <p>さいたま市西区・上尾市を中心に、3事業所が連携してご対応します。ご自宅のエリアに近い事業所へお気軽にご相談ください。</p>
     </div>
-    <div class="area-grid">
-      <div class="area-map">
-        <img src="area_map.png" alt="主な対応市区町村MAP" style="width:100%; height:auto; display:block; border-radius:8px;">
+    <!-- 対応可能な市区町村（地図カード） -->
+    <div class="area-map-card">
+      <div class="head">
+        <span class="area-label">MAP</span>
+        <h3>対応可能な市区町村</h3>
       </div>
-      <div class="area-list-note">
-        <p style="font-size:13px;color:var(--text-sub);margin:0;text-align:center;line-height:1.9;">
-          ※ 上記マップに記載の市区町村が、3事業所での主な対応エリアです。<br>
+      <div class="body">
+        <img src="area_map.png" alt="主な対応市区町村MAP" style="width:100%; height:auto; display:block; border-radius:8px;">
+        <div class="area-note">
+          <p>※ 上記マップに記載の市区町村が、3事業所での主な対応エリアです。<br>
           ※ 近隣の市区町村も、地域包括支援センターと連携してご案内いたします。<br>
-          ※ 訪問可能な範囲は事業所により異なります。詳しくはお問い合わせください。
-        </p>
+          ※ 訪問可能な範囲は事業所により異なります。詳しくはお問い合わせください。</p>
+        </div>
       </div>
     </div>
 
@@ -992,68 +1054,69 @@
   </div>
 </section>
 
-<!-- お問い合わせ前のFAQ（アコーディオン） -->
-<section class="faq-mini">
-  <div class="section-inner">
-    <div class="section-head" style="margin-bottom:24px;">
-      <h2 style="font-size:24px; line-height:1.5;"><span style="font-size:18px; display:block; color:var(--sage-dark); font-weight:400; letter-spacing:0.06em;">お問い合わせの前に・・・</span>よくいただくご質問</h2>
-      <p>クリックすると答えが開きます。</p>
-    </div>
-    <div class="faq-acc">
-      <details class="faq-acc-item">
-        <summary><span class="mark">Q</span><span class="q-text">相談だけでも大丈夫ですか？</span><span class="chev">＋</span></summary>
-        <div class="faq-acc-a"><span class="mark">A</span><span>もちろん大丈夫です。サービスのご利用が決まっていなくても、お気軽にお電話ください。</span></div>
-      </details>
-      <details class="faq-acc-item">
-        <summary><span class="mark">Q</span><span class="q-text">費用はかかりますか？</span><span class="chev">＋</span></summary>
-        <div class="faq-acc-a"><span class="mark">A</span><span>ケアプラン作成・ご相談は介護保険から全額給付されるため、ご利用者様のご負担はありません。</span></div>
-      </details>
-      <details class="faq-acc-item">
-        <summary><span class="mark">Q</span><span class="q-text">要介護認定を受けていなくても相談できますか？</span><span class="chev">＋</span></summary>
-        <div class="faq-acc-a"><span class="mark">A</span><span>認定の申請からお手伝いいたします。まずはお気軽にご相談ください。</span></div>
-      </details>
-      <details class="faq-acc-item">
-        <summary><span class="mark">Q</span><span class="q-text">担当のケアマネジャーは選べますか？</span><span class="chev">＋</span></summary>
-        <div class="faq-acc-a"><span class="mark">A</span><span>ご希望をうかがいながら調整いたします。途中での変更も可能です。</span></div>
-      </details>
-      <details class="faq-acc-item">
-        <summary><span class="mark">Q</span><span class="q-text">土日祝も対応していますか？</span><span class="chev">＋</span></summary>
-        <div class="faq-acc-a"><span class="mark">A</span><span>事業所により異なります。まずはお近くの事業所までお問い合わせください。</span></div>
-      </details>
-    </div>
-  </div>
-</section>
-
 <!-- お問い合わせ -->
 <section class="contact" id="contact">
   <div class="section-inner">
     <div class="section-head">
       <h2>お問い合わせ</h2>
-      <p>お電話・お問い合わせフォームの2つの方法でお気軽にどうぞ。</p>
+      <p>疑問があればまずQ&Aを、お気持ちが決まったらお電話またはフォームから。</p>
     </div>
-    <div class="contact-grid">
+
+    <!-- Q&A / 電話 / フォーム の3列 -->
+    <div class="contact-grid contact-grid-3col">
+      <!-- Q&A -->
+      <div class="contact-card contact-faq-card">
+        <h3 style="text-align:left;"><span class="card-label">Q&amp;A</span>よくいただくご質問</h3>
+        <p class="desc" style="text-align:left;">クリックで開閉できます。</p>
+        <div class="faq-acc" style="margin-top: 14px;">
+          <details class="faq-acc-item">
+            <summary><span class="mark">Q</span><span class="q-text">相談だけでも大丈夫ですか？</span><span class="chev">＋</span></summary>
+            <div class="faq-acc-a"><span class="mark">A</span><span>もちろん大丈夫です。サービスのご利用が決まっていなくても、お気軽にお電話ください。</span></div>
+          </details>
+          <details class="faq-acc-item">
+            <summary><span class="mark">Q</span><span class="q-text">費用はかかりますか？</span><span class="chev">＋</span></summary>
+            <div class="faq-acc-a"><span class="mark">A</span><span>ケアプラン作成・ご相談は介護保険から全額給付されるため、ご利用者様のご負担はありません。</span></div>
+          </details>
+          <details class="faq-acc-item">
+            <summary><span class="mark">Q</span><span class="q-text">要介護認定を受けていなくても相談できますか？</span><span class="chev">＋</span></summary>
+            <div class="faq-acc-a"><span class="mark">A</span><span>認定の申請からお手伝いいたします。まずはお気軽にご相談ください。</span></div>
+          </details>
+          <details class="faq-acc-item">
+            <summary><span class="mark">Q</span><span class="q-text">担当のケアマネジャーは選べますか？</span><span class="chev">＋</span></summary>
+            <div class="faq-acc-a"><span class="mark">A</span><span>ご希望をうかがいながら調整いたします。途中での変更も可能です。</span></div>
+          </details>
+          <details class="faq-acc-item">
+            <summary><span class="mark">Q</span><span class="q-text">土日祝も対応していますか？</span><span class="chev">＋</span></summary>
+            <div class="faq-acc-a"><span class="mark">A</span><span>事業所により異なります。まずはお近くの事業所までお問い合わせください。</span></div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 電話 -->
       <div class="contact-card">
-        <h3>📞 お電話でのご相談</h3>
+        <h3><span class="card-label">TEL</span>📞 お電話でのご相談</h3>
         <p class="desc">お近くの事業所へ直接おかけください。</p>
         <div style="display:flex; flex-direction:column; gap:14px; margin-top:20px;">
           <div>
             <div style="font-size:12px;color:var(--text-sub);">居宅介護支援事業所くるみ</div>
-            <div class="big-tel" style="font-size:24px; margin-bottom:0;">048-783-2001</div>
+            <div class="big-tel" style="font-size:22px; margin-bottom:0;">048-783-2001</div>
           </div>
           <div>
             <div style="font-size:12px;color:var(--text-sub);">上尾くるみ</div>
-            <div class="big-tel" style="font-size:24px; margin-bottom:0;">048-779-7131</div>
+            <div class="big-tel" style="font-size:22px; margin-bottom:0;">048-779-7131</div>
           </div>
           <div>
             <div style="font-size:12px;color:var(--text-sub);">プライエボーリくるみ（24時間連絡可）</div>
-            <div class="big-tel" style="font-size:24px; margin-bottom:0;">048-620-2133</div>
+            <div class="big-tel" style="font-size:22px; margin-bottom:0;">048-620-2133</div>
           </div>
         </div>
       </div>
+
+      <!-- フォーム -->
       <div class="contact-card">
-        <h3>✉ お問い合わせフォーム</h3>
+        <h3><span class="card-label">FORM</span>✉ お問い合わせフォーム</h3>
         <p class="desc">入力項目は最小限。お気軽にご連絡ください。</p>
-        <ul style="text-align:left; max-width:300px; margin: 20px auto; padding-left:20px; font-size:13px; color:var(--text-sub);">
+        <ul style="text-align:left; max-width:280px; margin: 20px auto; padding-left:20px; font-size:13px; color:var(--text-sub);">
           <li>お名前</li>
           <li>ご連絡先（電話番号またはメール）</li>
           <li>ご希望の事業所</li>
