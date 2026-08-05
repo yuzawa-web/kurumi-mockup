@@ -373,7 +373,7 @@
   }
 
   /* 対応エリア */
-  .area { background: var(--ine); }
+  .area { background: var(--white); }
   .area-grid { display: flex; flex-direction: column; gap: 30px; align-items: center; }
   .area-map {
     background: var(--white);
@@ -986,19 +986,16 @@
       <h2>対応エリアと事業所</h2>
       <p>さいたま市西区・上尾市を中心に、3事業所が連携してご対応します。ご自宅のエリアに近い事業所へお気軽にご相談ください。</p>
     </div>
-    <!-- 対応可能な市区町村（地図カード） -->
-    <div class="area-map-card">
-      <div class="head">
-        <span class="area-label">MAP</span>
-        <h3>対応可能な市区町村</h3>
-      </div>
-      <div class="body">
+    <div class="area-grid">
+      <div class="area-map">
         <img src="area_map.png" alt="主な対応市区町村MAP" style="width:100%; height:auto; display:block; border-radius:8px;">
-        <div class="area-note">
-          <p>※ 上記マップに記載の市区町村が、3事業所での主な対応エリアです。<br>
+      </div>
+      <div class="area-list-note">
+        <p style="font-size:13px;color:var(--text-sub);margin:0;text-align:center;line-height:1.9;">
+          ※ 上記マップに記載の市区町村が、3事業所での主な対応エリアです。<br>
           ※ 近隣の市区町村も、地域包括支援センターと連携してご案内いたします。<br>
-          ※ 訪問可能な範囲は事業所により異なります。詳しくはお問い合わせください。</p>
-        </div>
+          ※ 訪問可能な範囲は事業所により異なります。詳しくはお問い合わせください。
+        </p>
       </div>
     </div>
 
